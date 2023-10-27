@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #eee;
+  /* background: bg; */
+}
+
+/* Button Toggle Theme */
+.darkmode-input:checked + div {
+  background-color: #38BDF8;
+}
+.darkmode-input:checked + div .darkmode-spinner {
+  transform: translateX(38px);
+  background-color: white;
+}
+
+/* Custom clipPath Page Intro */
+.custom-clip-path {
+  clip-path: polygon(50% 0%, 100% 38%, 96% 90%, 3% 90%, 0% 38%);
+}
