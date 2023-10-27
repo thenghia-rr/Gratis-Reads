@@ -12,4 +12,4 @@ const userSchema = mongoose.Schema(
     }
 )
 
-export const User = mongoose.model('User', userSchema) 
+export const UserModal = mongoose.model('User', userSchema) 
