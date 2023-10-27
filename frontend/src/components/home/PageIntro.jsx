@@ -1,3 +1,4 @@
+// import  from '';
 
 const PageIntro = () => {
   return (
@@ -18,7 +19,7 @@ const PageIntro = () => {
             <figcaption className="mt-10">
               <img
                 className="mx-auto h-[100px] w-[100px] hover:dark:brightness-125 hover:dark:scale-110 dark:transition-all hover:brightness-125 hover:scale-110 transition-all select-none custom-clip-path"
-                src="https://o.remove.bg/downloads/6c1ec5fa-5a9e-4ccd-ae50-b5004aabecf8/53654c99be11352cc5e826851165bd21-removebg-preview.png"
+                src="../../src/assets/image/book.png"
                 alt=""
               />
               <div className="mt-4 flex items-center justify-center space-x-3 text-base">
