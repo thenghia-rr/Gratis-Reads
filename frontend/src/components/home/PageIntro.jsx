@@ -19,7 +19,7 @@ const PageIntro = () => {
             <figcaption className="mt-10">
               <img
                 className="mx-auto h-[100px] w-[100px] hover:dark:brightness-125 hover:dark:scale-110 dark:transition-all hover:brightness-125 hover:scale-110 transition-all select-none custom-clip-path"
-                src="../../src/assets/image/book.png"
+                src="/image/book.png"
                 alt=""
               />
               <div className="mt-4 flex items-center justify-center space-x-3 text-base">
