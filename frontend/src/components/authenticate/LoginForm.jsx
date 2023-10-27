@@ -21,7 +21,7 @@ const LoginForm = () => {
     }
     try {
       await axios
-              .post('http://localhost:5555/login', data)
+              .post('https://gratis-reads-server.onrender.com/login', data)
               .then((res) => {
                 if(res.data == 'exist') {
                   enqueueSnackbar('Login successfully ', {variant: 'success'});

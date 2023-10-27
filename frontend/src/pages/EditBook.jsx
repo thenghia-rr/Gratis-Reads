@@ -19,7 +19,7 @@ const EditBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5555/books/${id}`)
+      .get(`https://gratis-reads-server.onrender.com/books/${id}`)
       .then((res) => {
         setTitle(res.data.data.title);
         setAuthor(res.data.data.author);
@@ -45,7 +45,7 @@ const EditBook = () => {
     };
     setLoading(true);
     axios
-      .put(`http://localhost:5555/books/${id}`, data)
+      .put(`https://gratis-reads-server.onrender.com/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Edit book was successfully", { variant: "success" });

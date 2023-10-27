@@ -25,7 +25,7 @@ const Signup = () => {
         rePassword,
       }
       await axios
-              .post('http://localhost:5555/signup', data)
+              .post('https://gratis-reads-server.onrender.com/signup', data)
               .then(res => {
                 if(res.data == 'exist') {
                   enqueueSnackbar('User already exist !', {variant: 'info'});
