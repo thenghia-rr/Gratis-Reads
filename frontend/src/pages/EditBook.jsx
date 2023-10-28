@@ -4,6 +4,7 @@ import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSnackbar } from "notistack";
+import API from '../api/axios.js';
 import NavBar from "../components/header/NavBar";
 
 const EditBook = () => {
@@ -15,11 +16,12 @@ const EditBook = () => {
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const { id } = useParams();
+  const { VERCEL_URL_API } = API;
 
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://gratis-reads-api.vercel.app/books/${id}`)
+      .get(`${VERCEL_URL_API}/books/${id}`)
       .then((res) => {
         setTitle(res.data.data.title);
         setAuthor(res.data.data.author);
@@ -45,7 +47,7 @@ const EditBook = () => {
     };
     setLoading(true);
     axios
-      .put(`https://gratis-reads-api.vercel.app/books/${id}`, data)
+      .put(`${VERCEL_URL_API}/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Edit book was successfully", { variant: "success" });

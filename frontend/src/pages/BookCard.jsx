@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react'
 import { useSnackbar } from 'notistack';
+import API from '../api/axios.js';
 import axios from 'axios'
 import BooksCard from '../components/home/BooksCard'
 import Spinner from '../components/Spinner'
 import NavBar from '../components/header/NavBar';
 import Proptypes from 'prop-types'
-
 const BookCard = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
+  const { VERCEL_URL_API } = API;
   useEffect(() => {
     setLoading(true);
     axios
-      .get("https://gratis-reads-api.vercel.app/books")
+      .get(`${VERCEL_URL_API}/books`)
       .then((res) => {
         setBooks(res.data.data);
         setLoading(false);

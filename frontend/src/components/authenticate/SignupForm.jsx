@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useSnackbar } from 'notistack'
+import API from '../../api/axios'
+
 const Signup = () => {
   const [nameUser, setNameUser] = useState(''); 
   const [email, setEmail] = useState(''); 
@@ -10,6 +12,7 @@ const Signup = () => {
   const [rePassword, setRePassword] = useState('');
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
+  const { VERCEL_URL_API } = API;
 
   const submitForm = async(e) => {
     e.preventDefault();
@@ -25,7 +28,7 @@ const Signup = () => {
         rePassword,
       }
       await axios
-              .post('https://gratis-reads-api.vercel.app/signup', data)
+              .post(`${VERCEL_URL_API}/signup`, data)
               .then(res => {
                 if(res.data == 'exist') {
                   enqueueSnackbar('User already exist !', {variant: 'info'});

@@ -4,6 +4,7 @@ import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 import axios from "axios";
 import { useSnackbar } from "notistack";
+import API from '../api/axios.js';
 import NavBar from "../components/header/NavBar";
 
 const DeleteBook = () => {
@@ -11,11 +12,12 @@ const DeleteBook = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
+  const { VERCEL_URL_API } = API;
 
   const handleDeleteBook = () => {
     setLoading(true);
     axios
-      .delete(`https://gratis-reads-api.vercel.app/books/${id}`)
+      .delete(`${VERCEL_URL_API}/books/${id}`)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Delete Book was successfully", { variant: "success" });

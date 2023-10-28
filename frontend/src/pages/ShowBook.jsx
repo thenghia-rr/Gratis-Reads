@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import API from '../api/axios.js';
 import axios from "axios";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
@@ -8,12 +9,13 @@ import NavBar from "../components/header/NavBar";
 const ShowBook = () => {
   const [book, setBook] = useState({});
   const [loading, setLoading] = useState(false);
-
   const { id } = useParams();
+  const { VERCEL_URL_API } = API;
+
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://gratis-reads-api.vercel.app/books/${id}`)
+      .get(`${VERCEL_URL_API}/books/${id}`)
       .then((res) => {
         setBook(res.data.data);
         setLoading(false);

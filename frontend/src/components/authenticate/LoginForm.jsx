@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios';
 import { useSnackbar } from 'notistack'
+import axios from 'axios';
+import API from '../../api/axios';
+
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
+  const { VERCEL_URL_API } = API;
 
   const submitForm = async(e) => {
     e.preventDefault();
@@ -21,7 +24,7 @@ const LoginForm = () => {
     }
     try {
       await axios
-              .post('https://gratis-reads-api.vercel.app/login', data)
+              .post(`${VERCEL_URL_API}/login`, data)
               .then((res) => {
                 if(res.data == 'exist') {
                   enqueueSnackbar('Login successfully ', {variant: 'success'});

@@ -4,6 +4,7 @@ import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 import { useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack'
+import API from '../api/axios.js';
 import NavBar from '../components/header/NavBar';
 
 const CreateBook = () => {
@@ -14,6 +15,7 @@ const CreateBook = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
+  const { VERCEL_URL_API } = API;
   const handleSaveBook = () => {
     const data = {
       title,
@@ -23,7 +25,7 @@ const CreateBook = () => {
     }
     setLoading(true);
     axios
-      .post('https://gratis-reads-api.vercel.app/books', data)
+      .post(`${VERCEL_URL_API}/books`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Create a new book successfully', {variant: 'success'});
