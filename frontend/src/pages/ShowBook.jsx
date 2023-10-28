@@ -13,7 +13,7 @@ const ShowBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://gratis-reads-server.onrender.com/books/${id}`)
+      .get(`https://gratis-reads-api.vercel.app/books/${id}`)
       .then((res) => {
         setBook(res.data.data);
         setLoading(false);

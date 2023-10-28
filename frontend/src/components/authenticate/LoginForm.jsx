@@ -21,7 +21,7 @@ const LoginForm = () => {
     }
     try {
       await axios
-              .post('https://gratis-reads-server.onrender.com/login', data)
+              .post('https://gratis-reads-api.vercel.app/login', data)
               .then((res) => {
                 if(res.data == 'exist') {
                   enqueueSnackbar('Login successfully ', {variant: 'success'});

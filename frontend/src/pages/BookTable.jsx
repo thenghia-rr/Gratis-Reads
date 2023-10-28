@@ -14,7 +14,7 @@ const BookTable = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("https://gratis-reads-server.onrender.com/books")
+      .get("https://gratis-reads-api.vercel.app/books")
       .then((res) => {
         setBooks(res.data.data);
         setLoading(false);
@@ -28,7 +28,7 @@ const BookTable = () => {
   return (
     <>
       <NavBar />
-      <div className="mt-[60px] px-4">
+      <div className="mt-[60px] px-4 pt-4 relative">
         <div className="flex justify-between items-center">
           <h1 className="text-3xl my-7 text-sky-500 dark:text-sky-500 font-bold">
             Books List
@@ -37,7 +37,7 @@ const BookTable = () => {
             <MdOutlineAddBox className="text-4xl text-sky-500 hover:text-sky-600 dark:text-sky-500 hover:dark:text-sky-400 transition-colors" />
           </Link>
         </div>
-        {loading ? <Spinner /> : <BooksTable books={books} />}
+        {loading ? <Spinner/> : <BooksTable books={books} />}
       </div>
     </>
   );

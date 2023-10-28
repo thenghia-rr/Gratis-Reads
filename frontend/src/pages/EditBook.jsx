@@ -19,7 +19,7 @@ const EditBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://gratis-reads-server.onrender.com/books/${id}`)
+      .get(`https://gratis-reads-api.vercel.app/books/${id}`)
       .then((res) => {
         setTitle(res.data.data.title);
         setAuthor(res.data.data.author);
@@ -45,7 +45,7 @@ const EditBook = () => {
     };
     setLoading(true);
     axios
-      .put(`https://gratis-reads-server.onrender.com/books/${id}`, data)
+      .put(`https://gratis-reads-api.vercel.app/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Edit book was successfully", { variant: "success" });

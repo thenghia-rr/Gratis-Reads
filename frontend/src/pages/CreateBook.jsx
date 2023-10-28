@@ -23,7 +23,7 @@ const CreateBook = () => {
     }
     setLoading(true);
     axios
-      .post('https://gratis-reads-server.onrender.com/books', data)
+      .post('https://gratis-reads-api.vercel.app/books', data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Create a new book successfully', {variant: 'success'});
